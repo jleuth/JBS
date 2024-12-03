@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jake's Build Server v0.1</title>
+</head>
+
+<body>
+    <h1>Jake's Build Server v0.1</h1>
+
+    <div id="auth-section">
+        <h2>Authentication</h2>
+        <form id="auth-form">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br />
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="main-content" style="display: none;">
+        <p>Built by Jake Leuthardt (https://jleuthardt.com)</p>
+
+        <br />
+        <br />
+        <br />
+
+        <h2>Run a build</h2>
+        <form action="/build" method="post" enctype="multipart/form-data">
+            <label for="devName">Developer Name:</label>
+            <input type="text" id="devName" name="devName" required>
+            <br />
+            <label for="folderUpload">Upload Folder:</label>
+            <input type="file" id="folderUpload" name="folderUpload" webkitdirectory directory required>
+            <br />
+            <button type="submit">Build</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('auth-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const inputPassword = document.getElementById('password').value;
+            const correctPassword = "{{ password }}";
+
+            if (inputPassword === correctPassword) {
+                document.getElementById('auth-section').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        });
+    </script>
+</body>
+
+</html>
