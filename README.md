@@ -1,5 +1,7 @@
 # JBS - Jake's Build Server
 
+*Barely any interface, barely any complexity!*
+
 Jake's Build Server is a super simple online make build server. It allows developers to upload their project files, run a build script, and download the resulting build artifacts.
 
 ## Features
